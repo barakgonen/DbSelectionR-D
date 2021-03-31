@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/DataWriter" />
             <option value="$PROJECT_DIR$/QueriesManager" />
             <option value="$PROJECT_DIR$/schemas" />
+            <option value="$PROJECT_DIR$/schemas/baseObjects" />
           </set>
         </option>
       </GradleProjectSettings>

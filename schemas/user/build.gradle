@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+}
+
+plugins {
+    id 'java'
+    id "com.commercehub.gradle.plugin.avro" version "0.22.0"
+    id 'maven'
+    id 'maven-publish'
+}
+
+group 'org.example'
+version '2.0-TRIANGLE_WITHOUT_MISTAKE_OLD_AVRO'
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    compile "org.apache.avro:avro:1.10.1"
+    // https://mvnrepository.com/artifact/joda-time/joda-time
+    compile group: 'joda-time', name: 'joda-time', version: '2.10.8'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+generateAvroJava.source += "$rootDir/schemas/baseObjects/src/main/avro"
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+
+//def generateAvro = tasks.register("generateAvro", com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask) {
+//    source("..\\baseObjects\\src\\main\\avro\\**.avsc", "src\\main\\avro")
+//    outputDir = file("bg/avro")
+//}
+//
+//tasks.named("compileJava").configure {
+//    source(generateAvro)
+//}
+//
+//def generateProtocol = tasks.register("generateProtocol", com.commercehub.gradle.plugin.avro.GenerateAvroProtocolTask) {
+//    source file("src/main/avro")
+//    include("**/*.avdl")
+//    outputDir = file("build/generated-avro-main-avpr")
+//}
+//
+//tasks.register("generateSchema", com.commercehub.gradle.plugin.avro.GenerateAvroSchemaTask) {
+//    dependsOn generateProtocol
+//    source file("src/main/avro")
+//    source file("build/generated-avro-main-avpr")
+//    include("**/*.avpr")
+//    outputDir = file("build/generated-main-avro-avsc")
+//}

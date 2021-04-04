@@ -1,4 +1,4 @@
 package org.readers.dbReaders;
 
-public class CouchDbWriter {
+public class CouchDbReader {
 }

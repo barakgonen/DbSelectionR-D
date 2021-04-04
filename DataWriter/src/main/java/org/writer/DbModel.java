@@ -1,7 +1,7 @@
 package org.writer;
 
 import javax.persistence.*;
-import java.awt.*;
+import org.springframework.data.geo.Point;
 
 @Entity
 @Table(name = "posToId")
@@ -11,6 +11,10 @@ public class DbModel {
 
     @Column(name = "pos")
     private Point pos;
+
+    public DbModel(){
+
+    }
 
     public DbModel(String uuid, Point pos) {
         this.uuid = uuid;

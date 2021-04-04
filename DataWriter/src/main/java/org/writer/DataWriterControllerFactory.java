@@ -18,7 +18,7 @@ public class DataWriterControllerFactory {
 
                 return writer;
             default:
-                System.out.println("Couldnt find db for you returning null");
+                System.out.println("Couldn't find db for you returning null");
                 return null;
         }
     }

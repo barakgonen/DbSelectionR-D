@@ -1,7 +1,5 @@
 package org.writer;
-
-import org.springframework.data.geo.Point;
-
+import org.locationtech.jts.geom.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
@@ -20,8 +18,12 @@ public class SourceSchemaInstancesGenerator {
         ArrayList<DbModel> generatedInstances = new ArrayList<>();
 
         for (int i = 0; i < numberOfInstances; i++) {
-            Point pos = new Point(getRandomDoubleValue(), getRandomDoubleValue());
-            generatedInstances.add(new DbModel(UUID.randomUUID().toString(), pos));
+            DbModel b = new DbModel(UUID.randomUUID().toString());
+            b.setLat(getRandomDoubleValue());
+            b.setLon(getRandomDoubleValue());
+            generatedInstances.add(b);
+//            Point pos = new Point(getRandomDoubleValue(), getRandomDoubleValue());
+//            generatedInstances.add(new DbModel(UUID.randomUUID().toString(), pos));
         }
         return generatedInstances;
     }

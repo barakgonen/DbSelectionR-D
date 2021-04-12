@@ -2,6 +2,13 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
+      <module name="DbSelectionRnD.DataWriter.elasticSearchDataWriter.main" target="11" />
+      <module name="DbSelectionRnD.DataWriter.elasticSearchDataWriter.test" target="11" />
+      <module name="DbSelectionRnD.DataWriters.CouchDb.main" target="11" />
+      <module name="DbSelectionRnD.DataWriters.CouchDb.test" target="11" />
+      <module name="DbSelectionRnD.PostgreSqlWriter" target="11" />
+      <module name="DbSelectionRnD.PostgreSqlWriter.main" target="11" />
+      <module name="DbSelectionRnD.PostgreSqlWriter.test" target="11" />
       <module name="elasticSearchDataWriter" target="11" />
       <module name="elasticSearchDataWriter_main" target="11" />
       <module name="elasticSearchDataWriter_test" target="11" />

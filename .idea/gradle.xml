@@ -11,8 +11,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/DataReader" />
-            <option value="$PROJECT_DIR$/DataWriter" />
-            <option value="$PROJECT_DIR$/DataWriter/ElasticSearchWriter" />
+            <option value="$PROJECT_DIR$/DataWriters" />
+            <option value="$PROJECT_DIR$/DataWriters/CouchDb" />
+            <option value="$PROJECT_DIR$/DataWriters/ElasticSearchWriter" />
+            <option value="$PROJECT_DIR$/DataWriters/Infra" />
+            <option value="$PROJECT_DIR$/DataWriters/ReThinkDb" />
             <option value="$PROJECT_DIR$/QueriesManager" />
             <option value="$PROJECT_DIR$/schemas" />
             <option value="$PROJECT_DIR$/schemas/baseObjects" />

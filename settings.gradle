@@ -19,9 +19,14 @@ pluginManagement {
 
 rootProject.name = 'DbSelectionRnD'
 include ":DataReader"
-include ":DataWriter"
 include ":QueriesManager"
 include ":schemas:baseObjects"
-include 'DataWriter:ElasticSearchWriter'
+include 'DataWriters:ElasticSearchWriter'
 findProject(':DataWriter:ElasticSearchWriter')?.name = 'elasticSearchDataWriter'
+include 'DataWriters:Infra'
+findProject(':DataWriters:Infra')?.name = 'Infra'
+include 'DataWriters:CouchDb'
+findProject(':DataWriters:CouchDb')?.name = 'CouchDb'
+include 'DataWriters:ReThinkDb'
+findProject(':DataWriters:ReThinkDb')?.name = 'ReThinkDb'
 

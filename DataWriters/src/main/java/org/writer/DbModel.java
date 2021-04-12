@@ -28,7 +28,7 @@ public class DbModel implements Serializable {
 
     public DbModel(String uui){
         this.uuid = uui;
-        geom = new Point();
+//        geom = new Point();
     }
     public void setLat(double lat){
         geom.getCoordinate().setX(lat);

@@ -22,3 +22,6 @@ include ":DataReader"
 include ":DataWriter"
 include ":QueriesManager"
 include ":schemas:baseObjects"
+include 'DataWriter:ElasticSearchWriter'
+findProject(':DataWriter:ElasticSearchWriter')?.name = 'elasticSearchDataWriter'
+

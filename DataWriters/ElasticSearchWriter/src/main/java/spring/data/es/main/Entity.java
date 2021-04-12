@@ -1,11 +1,8 @@
 package spring.data.es.main;
 
-
 import org.elasticsearch.common.geo.GeoPoint;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.GeoPointField;
-import org.springframework.data.util.Pair;
-
 
 import java.util.Random;
 import java.util.UUID;
@@ -19,7 +16,7 @@ public class Entity {
 
     public Entity(String area) {
         id = UUID.randomUUID().toString();
-        switch (area){
+        switch (area) {
             case "A":
                 position = new GeoPoint(generateAroundA());
                 break;
@@ -34,7 +31,7 @@ public class Entity {
     }
 
     private void setPosition() {
-        switch (area){
+        switch (area) {
             case "A":
                 position = new GeoPoint(generateAroundA());
                 break;
@@ -47,7 +44,7 @@ public class Entity {
         }
     }
 
-    public void updatePosition(){
+    public void updatePosition() {
         setPosition();
     }
 

@@ -2,10 +2,44 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
+      <module name="DbSelectionRnD.DataReader.CouchDb" target="11" />
+      <module name="DbSelectionRnD.DataReader.CouchDb.main" target="11" />
+      <module name="DbSelectionRnD.DataReader.CouchDb.test" target="11" />
+      <module name="DbSelectionRnD.DataReader.ElasticSearchReader" target="11" />
+      <module name="DbSelectionRnD.DataReader.ElasticSearchReader.main" target="11" />
+      <module name="DbSelectionRnD.DataReader.ElasticSearchReader.test" target="11" />
+      <module name="DbSelectionRnD.DataReader.Infra" target="11" />
+      <module name="DbSelectionRnD.DataReader.Infra.main" target="11" />
+      <module name="DbSelectionRnD.DataReader.Infra.test" target="11" />
+      <module name="DbSelectionRnD.DataReader.MapBoxReader" target="11" />
+      <module name="DbSelectionRnD.DataReader.MapBoxReader.main" target="11" />
+      <module name="DbSelectionRnD.DataReader.MapBoxReader.test" target="11" />
+      <module name="DbSelectionRnD.DataReader.MariDbReader" target="11" />
+      <module name="DbSelectionRnD.DataReader.MariDbReader.main" target="11" />
+      <module name="DbSelectionRnD.DataReader.MariDbReader.test" target="11" />
+      <module name="DbSelectionRnD.DataReaders.MariDbReader.main" target="11" />
+      <module name="DbSelectionRnD.DataReaders.MariDbReader.test" target="11" />
+      <module name="DbSelectionRnD.DataReaders.PostGisReader" target="11" />
+      <module name="DbSelectionRnD.DataReaders.PostGisReader.main" target="11" />
+      <module name="DbSelectionRnD.DataReaders.PostGisReader.test" target="11" />
+      <module name="DbSelectionRnD.DataReaders.PostgresSqlDbReader" target="11" />
+      <module name="DbSelectionRnD.DataReaders.PostgresSqlDbReader.main" target="11" />
+      <module name="DbSelectionRnD.DataReaders.PostgresSqlDbReader.test" target="11" />
+      <module name="DbSelectionRnD.DataReaders.ReThinkDbReader" target="11" />
+      <module name="DbSelectionRnD.DataReaders.ReThinkDbReader.main" target="11" />
+      <module name="DbSelectionRnD.DataReaders.ReThinkDbReader.test" target="11" />
       <module name="DbSelectionRnD.DataWriter.elasticSearchDataWriter.main" target="11" />
       <module name="DbSelectionRnD.DataWriter.elasticSearchDataWriter.test" target="11" />
       <module name="DbSelectionRnD.DataWriters.CouchDb.main" target="11" />
       <module name="DbSelectionRnD.DataWriters.CouchDb.test" target="11" />
+      <module name="DbSelectionRnD.DbReader.PostgresSqlDbReader.main" target="11" />
+      <module name="DbSelectionRnD.DbReader.PostgresSqlDbReader.test" target="11" />
+      <module name="DbSelectionRnD.DbReaders.PostGisWriter" target="11" />
+      <module name="DbSelectionRnD.DbReaders.PostGisWriter.main" target="11" />
+      <module name="DbSelectionRnD.DbReaders.PostGisWriter.test" target="11" />
+      <module name="DbSelectionRnD.PostGisReader" target="11" />
+      <module name="DbSelectionRnD.PostGisReader.main" target="11" />
+      <module name="DbSelectionRnD.PostGisReader.test" target="11" />
       <module name="DbSelectionRnD.PostgreSqlWriter" target="11" />
       <module name="DbSelectionRnD.PostgreSqlWriter.main" target="11" />
       <module name="DbSelectionRnD.PostgreSqlWriter.test" target="11" />

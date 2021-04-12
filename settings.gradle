@@ -18,7 +18,6 @@ pluginManagement {
 }
 
 rootProject.name = 'DbSelectionRnD'
-include ":DataReader"
 include ":QueriesManager"
 include ":schemas:baseObjects"
 include 'DataWriters:ElasticSearchWriter'
@@ -37,4 +36,22 @@ include 'DataWriters:PostgresSqlDbWriter'
 findProject(':DataWriters:PostgresSqlDbWriter')?.name = 'PostgresSqlDbWriter'
 include 'DataWriters:MapBoxWriter'
 findProject(':DataWriters:MapBoxWriter')?.name = 'MapBoxWriter'
+include 'DataReaders:Infra'
+findProject(':DataReaders:Infra')?.name = 'Infra'
+include 'DataReaders:CouchDb'
+findProject(':DataReaders:CouchDb')?.name = 'CouchDb'
+include 'DataReaders:ElasticSearchReader'
+findProject(':DataReaders:ElasticSearchReader')?.name = 'ElasticSearchReader'
+include 'DataReaders:MapBoxReader'
+findProject(':DataReaders:MapBoxReader')?.name = 'MapBoxReader'
+include 'DataReaders:MariaDbReader'
+findProject(':DataReaders:MariaDbReader')?.name = 'MariaDbReader'
+include 'DataReaders:PostGisWriter'
+findProject(':DataReaders:PostGisWriter')?.name = 'PostGisWriter'
+include 'DataReaders:PostGisReader'
+findProject(':DataReaders:PostGisReader')?.name = 'PostGisReader'
+include 'DataReaders:PostgresSqlDbReader'
+findProject(':DataReaders:PostgresSqlDbReader')?.name = 'PostgresSqlDbReader'
+include 'DataReaders:ReThinkDbReader'
+findProject(':DataReaders:ReThinkDbReader')?.name = 'ReThinkDbReader'
 

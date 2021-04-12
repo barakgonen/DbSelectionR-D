@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 @Component
@@ -26,9 +27,16 @@ public class PostgresSqlDbReader extends GenericDbReader<DbModel> {
         shapeFactory.setNumPoints(32);
         shapeFactory.setCentre(new Coordinate(usersPointOfView.getLat(), usersPointOfView.getLon()));
         shapeFactory.setSize(radiusInKm * 2);
-        Geometry
+//        Geometry
 
-        return repoInterface.findWithin("", );
+//        return repoInterface.findWithin("", );
+        // TODO fixme
+        return Collections.emptyList();
+    }
+
+    @Override
+    protected HashMap<String, Collection<DbModel>> readMultiClients(HashMap<String, Pair<org.bg.avro.structures.base.objects.Coordinate, Double>> usersPref) {
+        return null;
     }
 
 //    @Override

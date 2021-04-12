@@ -2,13 +2,12 @@ package org.readers.dbReaders;
 
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.util.GeometricShapeFactory;
-import jdk.internal.net.http.common.Pair;
-import org.postgis.Geometry;
 import org.readers.DbModel;
 import org.readers.GenericDbReader;
 import org.readers.ReadersInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;

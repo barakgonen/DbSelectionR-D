@@ -1,7 +1,7 @@
 package org.readers;
 
-import jdk.internal.net.http.common.Pair;
 import org.bg.avro.structures.base.objects.Coordinate;
+import org.springframework.data.util.Pair;
 
 import java.util.Collection;
 import java.util.HashMap;

@@ -1,15 +1,11 @@
 package org.readers;
 
-import jdk.internal.net.http.common.Pair;
 import org.bg.avro.structures.base.objects.Coordinate;
 import org.joda.time.DateTime;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-import java.util.Optional;
 
 @RestController
 public class DataReaderApp {

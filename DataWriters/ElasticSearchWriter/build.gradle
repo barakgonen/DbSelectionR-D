@@ -18,14 +18,11 @@ dependencies {
         exclude group: 'org.slf4j.impl', module: 'Log4LoggerFactory'
     }
 
+    implementation project(':CommonModels')
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.20'
     compile "org.springframework.boot:spring-boot-starter"
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.data:spring-data-elasticsearch"
     compile "com.vividsolutions:jts:1.13"
     compile "org.locationtech.spatial4j:spatial4j:0.7"
-
-//    implementation group: 'org.n52.jackson', name: 'jackson-datatype-jts', version: '1.2.8'
-// https://mvnrepository.com/artifact/org.locationtech.jts/jts-core
-//    implementation group: 'org.locationtech.jts', name: 'jts-core', version: '1.18.1'
 }

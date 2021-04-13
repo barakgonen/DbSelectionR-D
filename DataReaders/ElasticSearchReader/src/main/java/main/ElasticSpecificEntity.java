@@ -1,21 +1,23 @@
-package spring.data.es.main;
+package main;
 
+import org.common.structs.AbstractEntity;
+import org.common.structs.DistGroup;
+import org.common.structs.KinematicType;
 import org.elasticsearch.common.geo.GeoPoint;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.GeoPointField;
 
-import java.util.Random;
-import java.util.UUID;
-
+/**
+ * This class represents ElasticSearch's entity for our project
+ * GeoPoint is Elastic's specific type thus, must be extended from an AbstractEntity
+ */
 @Document(indexName = "locationwithdata")
-public class Entity {
-    private String id;
+public class ElasticSpecificEntity extends AbstractEntity {
     @GeoPointField
     private GeoPoint position;
-    private String area;
 
-    public Entity(String area) {
-        id = UUID.randomUUID().toString();
+    public ElasticSpecificEntity(String area/*, KinematicType kinematicType, DistGroup distGroup*/) {
+        super(area/*, kinematicType, distGroup*/);
         switch (area) {
             case "A":
                 position = new GeoPoint(generateAroundA());
@@ -27,7 +29,6 @@ public class Entity {
                 position = new GeoPoint(generateAroundC());
                 break;
         }
-        this.area = area;
     }
 
     private void setPosition() {
@@ -66,10 +67,4 @@ public class Entity {
 
         return new GeoPoint(lat, lon);
     }
-
-    private double getRandomDoubleValueInRange(double min, double max) {
-        return min + new Random().nextDouble() * (max - min);
-    }
-
-
 }

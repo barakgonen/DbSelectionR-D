@@ -54,4 +54,5 @@ include 'DataReaders:PostgresSqlDbReader'
 findProject(':DataReaders:PostgresSqlDbReader')?.name = 'PostgresSqlDbReader'
 include 'DataReaders:ReThinkDbReader'
 findProject(':DataReaders:ReThinkDbReader')?.name = 'ReThinkDbReader'
+include 'CommonModels'
 

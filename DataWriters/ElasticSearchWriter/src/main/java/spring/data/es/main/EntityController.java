@@ -1,5 +1,7 @@
 package spring.data.es.main;
 
+import org.common.structs.DistGroup;
+import org.common.structs.KinematicType;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
@@ -14,11 +16,9 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
-import spring.data.es.config.Config;
 
 import java.io.IOException;
 import java.util.*;
@@ -65,14 +65,14 @@ public class EntityController {
     @PostMapping("/entities")
     public ResponseEntity postEntities(@RequestParam Optional<String> numOfInstances, @RequestParam Optional<String> numOfUpdates) {
         if (indexCreatedSuccessfully()) {
-            ArrayList<Entity> entitiesToGenerate = new ArrayList<>();
+            ArrayList<ElasticSpecificEntity> entitiesToGenerate = new ArrayList<>();
             for (int i = 0; i < Integer.parseInt(numOfInstances.get()); i++) {
                 if (i % 2 == 0) {
-                    entitiesToGenerate.add(new Entity("A"));
+                    entitiesToGenerate.add(new ElasticSpecificEntity("A", KinematicType.POINT, DistGroup.A));
                 } else if (i % 3 == 0) {
-                    entitiesToGenerate.add(new Entity("B"));
+                    entitiesToGenerate.add(new ElasticSpecificEntity("B", KinematicType.POINT, DistGroup.A));
                 } else {
-                    entitiesToGenerate.add(new Entity("C"));
+                    entitiesToGenerate.add(new ElasticSpecificEntity("C", KinematicType.POINT, DistGroup.A));
                 }
             }
 
@@ -80,7 +80,7 @@ public class EntityController {
 
             if (Integer.parseInt(numOfUpdates.get()) > 1) {
                 for (int updateNumber = 0; updateNumber < Integer.parseInt(numOfUpdates.get()); updateNumber++) {
-                    entitiesToGenerate.forEach(Entity::updatePosition);
+                    entitiesToGenerate.forEach(ElasticSpecificEntity::updatePosition);
                     repo.saveAll(entitiesToGenerate);
                     try {
                         Thread.sleep(200);

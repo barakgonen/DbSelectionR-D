@@ -1,4 +1,4 @@
-package spring.data.es.main;
+package elasticsearch.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

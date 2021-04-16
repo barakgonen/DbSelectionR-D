@@ -1,12 +1,34 @@
+buildscript {
+    ext {
+        springBootVersion = "1.5.9.RELEASE"
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
 plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
 
-
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
+    implementation project(':CommonModels')
+    implementation project(':DataWriters:Infra')
+    implementation project(':DataWriters:ElasticSearchWriter')
+    compile "org.springframework.boot:spring-boot-starter"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.springframework.boot:spring-boot-starter-data-rest"
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.9.3'
+
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

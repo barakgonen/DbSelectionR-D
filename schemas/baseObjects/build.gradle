@@ -10,9 +10,6 @@ plugins {
     id 'maven-publish'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 group 'org.example'
 version '4.0-IddCoordinate'
 

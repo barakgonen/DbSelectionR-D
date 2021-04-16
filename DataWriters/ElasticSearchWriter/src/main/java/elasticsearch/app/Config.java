@@ -1,4 +1,4 @@
-package spring.data.es.main;
+package elasticsearch.app;
 
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.context.annotation.Bean;

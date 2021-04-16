@@ -1,4 +1,4 @@
-package spring.data.es.main;
+package elasticsearch.app;
 
 import org.common.structs.AbstractEntity;
 import org.common.structs.DistGroup;

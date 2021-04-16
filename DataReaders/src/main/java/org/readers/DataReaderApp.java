@@ -13,7 +13,7 @@ public class DataReaderApp {
     public Long query() {
         DateTime startTime = DateTime.now();
         GenericDbReader reader = DataReadersControllerFactory.getController();
-        Collection<DbModel> values = reader.readFromDb(Coordinate.newBuilder().setLat(32).setLon(32.2).setAltitude(23.2).build(), 4.9);
+        Collection<DbModel> values = reader.readFromDb(Coordinate.newBuilder().setLatitude(32).setLongitude(32.2).setAltitude(23.2).build(), 4.9);
 
         return DateTime.now().getMillis() - startTime.getMillis();
     }

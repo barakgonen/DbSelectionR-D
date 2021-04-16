@@ -1,11 +1,11 @@
-package spring.data.es.main;
+package elasticsearch.app;
 
-import org.common.structs.DistGroup;
-import org.common.structs.KinematicType;
-import org.common.structs.SimulationRequest;
+import com.google.gson.Gson;
+import org.common.structs.*;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.client.indices.CreateIndexResponse;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
@@ -29,6 +29,7 @@ public class EntityController {
     private Config config = new Config();
     private long queryTime = 0;
     private long queries = 0;
+    private static Gson GSON = new Gson();
 
     private boolean indexCreatedSuccessfully() {
         String indexName = "locationwithdata";
@@ -59,8 +60,9 @@ public class EntityController {
         }
     }
 
-    @PostMapping("/entities")
-    public ResponseEntity postEntities(@RequestBody SimulationRequest req) {
+    @PostMapping("/createEntities")
+    public ResponseEntity postEntities(@RequestBody StartSimulationRequest req) {
+        DateTime startTime = new DateTime();
         if (indexCreatedSuccessfully()) {
             ArrayList<ElasticSpecificEntity> entitiesToGenerate = new ArrayList<>();
             for (int i = 0; i < req.getNumberOfEntities(); i++) {
@@ -75,6 +77,19 @@ public class EntityController {
 
             repo.saveAll(entitiesToGenerate);
 
+            StartSimulationResponse l = new StartSimulationResponse(req, startTime.getMillis(), DateTime.now().getMillis(), WritingMethod.BATCH);
+            return ResponseEntity.ok(GSON.toJson(l));
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @PostMapping("/updateData")
+    public ResponseEntity postEntities(@RequestBody UpdateDataRequest req) {
+        DateTime startTime = new DateTime();
+        if (indexCreatedSuccessfully()) {
+            ArrayList<ElasticSpecificEntity> entitiesToGenerate = new ArrayList<>();
+            repo.findAll().forEach(entitiesToGenerate::add);
+
             if (req.getNumberOfUpdates() > 1) {
                 for (int updateNumber = 0; updateNumber < req.getNumberOfUpdates(); updateNumber++) {
                     for (ElasticSpecificEntity entity : entitiesToGenerate){
@@ -83,8 +98,8 @@ public class EntityController {
                     }
                 }
             }
-
-            return ResponseEntity.ok("finished");
+            UpdateDataResponse l = new UpdateDataResponse(startTime.getMillis(), DateTime.now().getMillis(), req);
+            return ResponseEntity.ok(GSON.toJson(l));
         }
         return ResponseEntity.badRequest().build();
     }

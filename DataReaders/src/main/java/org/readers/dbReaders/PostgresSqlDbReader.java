@@ -24,7 +24,7 @@ public class PostgresSqlDbReader extends GenericDbReader<DbModel> {
     protected Collection<DbModel> readFromDb(org.bg.avro.structures.base.objects.Coordinate usersPointOfView, double radiusInKm) {
         GeometricShapeFactory shapeFactory = new GeometricShapeFactory();
         shapeFactory.setNumPoints(32);
-        shapeFactory.setCentre(new Coordinate(usersPointOfView.getLat(), usersPointOfView.getLon()));
+        shapeFactory.setCentre(new Coordinate(usersPointOfView.getLatitude(), usersPointOfView.getLongitude()));
         shapeFactory.setSize(radiusInKm * 2);
 //        Geometry
 

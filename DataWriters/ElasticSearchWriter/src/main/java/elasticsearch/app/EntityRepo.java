@@ -1,4 +1,4 @@
-package spring.data.es.main;
+package elasticsearch.app;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;

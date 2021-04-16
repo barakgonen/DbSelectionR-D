@@ -77,8 +77,10 @@ public class EntityController {
 
             if (req.getNumberOfUpdates() > 1) {
                 for (int updateNumber = 0; updateNumber < req.getNumberOfUpdates(); updateNumber++) {
-                    entitiesToGenerate.forEach(ElasticSpecificEntity::updatePosition);
-                    repo.save(entitiesToGenerate.get(updateNumber));
+                    for (ElasticSpecificEntity entity : entitiesToGenerate){
+                        entity.updatePosition();
+                        repo.save(entity);
+                    }
                 }
             }
 

@@ -1,4 +1,4 @@
-package elasticsearch.app;
+package org.elasticsearch.app;
 
 import org.common.structs.AbstractEntity;
 import org.common.structs.DistGroup;
@@ -16,7 +16,7 @@ public class ElasticSpecificEntity extends AbstractEntity {
     @GeoPointField
     private GeoPoint position;
 
-    public ElasticSpecificEntity(String area, KinematicType kinematicType, DistGroup distGroup) {
+    public ElasticSpecificEntity(String area/*, KinematicType kinematicType, DistGroup distGroup*/) {
         super(area/*, kinematicType, distGroup*/);
         switch (area) {
             case "A":

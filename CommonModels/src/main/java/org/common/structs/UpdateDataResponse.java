@@ -1,7 +1,5 @@
 package org.common.structs;
 
-import org.joda.time.DateTime;
-
 public class UpdateDataResponse extends BaseRequestParams {
     private UpdateDataRequest originReq;
 
@@ -10,7 +8,20 @@ public class UpdateDataResponse extends BaseRequestParams {
     }
 
     public UpdateDataResponse(long startTimeMillis, long endTimeMillis, UpdateDataRequest originReq) {
-        super(startTimeMillis, endTimeMillis);
+        super(startTimeMillis, endTimeMillis, originReq.getWritingMethod());
         this.originReq = originReq;
+    }
+
+    public int getNumberOfUpdates() {
+        return originReq.getNumberOfUpdates();
+    }
+
+    public long getTotalDuration() {
+        return totalDurationMillis;
+    }
+
+    @Override
+    public String toString(){
+        return "Orig. Req: " + originReq + " " + super.toString();
     }
 }

@@ -1,6 +1,6 @@
 package org.common.structs;
 
-public enum WritingMethod {
+public enum DbTransactionMode {
     BATCH,
     ONE_BY_ONE
 }

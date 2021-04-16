@@ -1,5 +1,6 @@
 package main;
 
+import org.common.structs.DbReadRequest;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
@@ -14,6 +15,8 @@ import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
@@ -36,8 +39,8 @@ public class EntityController {
                 .point(originLat, originLon).queryName(queryName);
     }
 
-    @GetMapping("/entities")
-    public ResponseEntity getEntities() {
+    @PostMapping("/entities")
+    public ResponseEntity getEntities(@RequestBody DbReadRequest readRequest) {
         queries++;
         DateTime now = DateTime.now();
         String indexName = "locationwithdata";

@@ -91,7 +91,11 @@ public class EntityController {
     public ResponseEntity postEntities(@RequestBody UpdateDataRequest req) {
         ArrayList<ElasticSpecificEntity> entitiesToGenerate = new ArrayList<>();
         repo.findAll().forEach(entitiesToGenerate::add);
-
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         DateTime startTime = new DateTime();
         if (req.getNumberOfUpdates() > 1) {
             if (req.getWritingMethod().equals(DbTransactionMode.ONE_BY_ONE)) {
@@ -109,6 +113,11 @@ public class EntityController {
             for (ElasticSpecificEntity entity : entitiesToGenerate) {
                 entity.updatePosition();
                 repo.save(entity);
+                try {
+                    Thread.sleep(150);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -119,6 +128,11 @@ public class EntityController {
                 entity.updatePosition();
             }
             repo.saveAll(entitiesToGenerate);
+            try {
+                Thread.sleep(150);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

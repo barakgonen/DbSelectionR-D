@@ -1,4 +1,4 @@
-package org.example;
+package org.analysis.db.api.elasticsearch;
 
 import com.google.gson.Gson;
 import org.common.structs.DbReadRequest;
@@ -13,14 +13,14 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ElasticSearchApiReader implements IGenericDbReader {
-
     private final static Gson GSON = new Gson();
+
     @Override
     public DbReadResponse queryDb(DbReadRequest readRequest) {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8086/entities"))
+                    .uri(URI.create("http://localhost:8086/readFromDb"))
                     .POST(HttpRequest.BodyPublishers.ofString(GSON.toJson(readRequest)))
                     .setHeader("Content-Type", "application/json")
                     .build();

@@ -1,4 +1,4 @@
-package org.example;
+package org.analysis.db.api.elasticsearch;
 
 import com.google.gson.Gson;
 import org.common.structs.*;

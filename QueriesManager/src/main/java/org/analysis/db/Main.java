@@ -28,14 +28,14 @@ public class Main {
         ExecutorService service = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
         LinkedList<ResultsAnalayzer> analyzedResults = new LinkedList<>();
         HashMap<Integer, Integer> entitiesToUpdates = new HashMap<>();
-//        entitiesToUpdates.put(10, 5);
+        entitiesToUpdates.put(10, 5);
 //        entitiesToUpdates.put(100, 100);
 //        entitiesToUpdates.put(500, 100);
 //        entitiesToUpdates.put(1000, 100);
 //        entitiesToUpdates.put(2500, 1000);
 //        entitiesToUpdates.put(5000, 2000);
 //        entitiesToUpdates.put(7500, 50);
-        entitiesToUpdates.put(10000, 50);
+//        entitiesToUpdates.put(10000, 150);
 //        entitiesToUpdates.put(20000, 50);
 //        entitiesToUpdates.put(30000, 50);
 //        entitiesToUpdates.put(40000, 50);
@@ -64,7 +64,7 @@ public class Main {
             final BufferedWriter writer = new BufferedWriter(new FileWriter("/local/" + fileName + ".csv"));
             // Writing header
             ArrayList<String> linesToWrite = new ArrayList<>();
-            linesToWrite.add("Num Of Entities,Insertion Transaction Mode,Insertion Duration(ms),Num of Updates,Updates Transaction Mode,Updates duration(ms)\n");
+            linesToWrite.add("Num Of Entities,Insertion Transaction Mode,Insertion Duration(ms),Num of Updates,Updates Transaction Mode,Updates duration(ms),queryTime\n");
             analyzedResults.forEach(resultsAnalayzer -> linesToWrite.add(resultsAnalayzer.toCsv()));
             for (String s : linesToWrite) {
                 writer.write(s);
@@ -80,7 +80,7 @@ public class Main {
                 service.submit(new DbWriter(elasticSearchApiWriter));
 
         Future<DbReadResponse> readerService =
-                service.submit(new DbReader(new DbReadRequest(100, 100)));
+                service.submit(new DbReader(new DbReadRequest(50, 10)));
 
         while (!readerService.isDone() || !writerService.isDone()){
 //            System.out.println("BG");

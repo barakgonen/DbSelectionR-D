@@ -26,6 +26,6 @@ public class ResultsAnalayzer {
     }
 
     public String toCsv() {
-        return numberOfEntities + "," + insertionTransactionMode + "," + insertionDuration + "," + numberOfUpdates + ","  + updatesTransactionMode + "," + updateDuration + "\n";
+        return numberOfEntities + "," + insertionTransactionMode + "," + insertionDuration + "," + numberOfUpdates + ","  + updatesTransactionMode + "," + updateDuration + "," + readResponse.getDbAvgWorkTime() + "\n";
     }
 }

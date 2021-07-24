@@ -34,8 +34,9 @@ public class EntityController {
 
     @Autowired
     private Config config = new Config();
-    private long queryTime = 0;
+    private long queryTimeMillis = 0;
     private long queries = 0;
+    private long netoQueryTimeMillis = 0;
     private static Gson GSON = new Gson();
 
     private GeoDistanceQueryBuilder buildQuery(ClientState clientState) {
@@ -46,8 +47,9 @@ public class EntityController {
 
     @PostMapping("/readFromDb")
     public ResponseEntity getEntities(@RequestBody DbReadRequest readRequest) {
-        queryTime = 0;
+        queryTimeMillis = 0;
         queries = 0;
+        netoQueryTimeMillis = 0;
         String indexName = "locationwithdata";
         String[] name = new String[1];
         name[0] = indexName;
@@ -76,6 +78,7 @@ public class EntityController {
 
             try {
                 SearchResponse res = config.getClient().search(requestt, RequestOptions.DEFAULT);
+                netoQueryTimeMillis += res.getTook().getMillis();
                 SearchHit[] hits = res.getHits().getHits();
 
                 for (SearchHit hit : hits) {
@@ -86,7 +89,7 @@ public class EntityController {
                             areaToIds.put(query, new LinkedList(Collections.singleton(hit.getId())));
                     }
                 }
-                queryTime += (DateTime.now().getMillis() - now.getMillis());
+                queryTimeMillis += (DateTime.now().getMillis() - now.getMillis());
                 try {
                     Thread.sleep(150);
                 } catch (InterruptedException e) {
@@ -101,13 +104,13 @@ public class EntityController {
                 return ResponseEntity.badRequest().build();
             }
         }
-        return ResponseEntity.ok(GSON.toJson(new DbReadResponse(readRequest, queryTime)));
+        return ResponseEntity.ok(GSON.toJson(new DbReadResponse(readRequest, queryTimeMillis, netoQueryTimeMillis)));
 
     }
 
     @GetMapping("/avg")
     public ResponseEntity getAvg() {
-        float avg = queryTime / queries;
+        float avg = queryTimeMillis / queries;
         return ResponseEntity.ok(avg);
     }
 }

@@ -124,6 +124,7 @@ public class EntityController {
 
     private void batchUpdate(UpdateDataRequest req, ArrayList<ElasticSpecificEntity> entitiesToGenerate) {
         for (int updateNumber = 0; updateNumber < req.getNumberOfUpdates(); updateNumber++) {
+            // Prepare data
             for (ElasticSpecificEntity entity : entitiesToGenerate) {
                 entity.updatePosition();
             }
